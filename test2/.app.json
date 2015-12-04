@@ -4,13 +4,41 @@
     {
       "type": "kendo-ui-mobile:view",
       "name": "home",
-      "components": [],
+      "components": [
+        {
+          "type": "kendo-ui-mobile:authentication",
+          "name": "homeModel",
+          "dataProvider": "test2",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "home",
+          "enableRegistration": true,
+          "gotoRegisterLabel": "Register",
+          "registerEmailLabel": "Email",
+          "registerPasswordLabel": "Password",
+          "registerNameLabel": "Name",
+          "registerLabel": "Register",
+          "registerRedirect": "home",
+          "gotoSigninLabel": "Sign In"
+        }
+      ],
       "title": "Home View",
       "addToNavigation": true,
       "icon": "home"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "test2",
+      "everliveUrl": "//platform.telerik.com/bs-api/v1/",
+      "title": "test2 / test2",
+      "source": "everlive",
+      "everliveKey": "s63yadcy8nnbdt7o",
+      "offlineStorage": true
+    }
+  ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
   "view": "home",
