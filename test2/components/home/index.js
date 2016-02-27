@@ -1,5 +1,6 @@
 'use strict';
 var viewModel = {};
+var profilesViewModel = {};
 
 app.home = kendo.observable({
     onShow: function() {
@@ -22,13 +23,13 @@ app.home = kendo.observable({
                 ENABLED: "ENABLED",
                 USER_CODE: "1234",
 				PROFILE: 1,
-				PROFILENAME: "MASTER ACCESS",
+				//PROFILENAME: "MASTER ACCESS",
             },{
                 PANELNAME: "WAREHOUSE",
                 ENABLED: "DISABLED",
                 USER_CODE: "1234",
 				PROFILE: 0,
-				PROFILENAME: "",
+				//PROFILENAME: "",
             }],
        	},{
             id: 2,
@@ -41,14 +42,14 @@ app.home = kendo.observable({
 				USER_NO: "",
                 USER_CODE: "2222",
 				PROFILE: 99,
-				PROFILENAME: "EMPLOYEE"
+				//PROFILENAME: "EMPLOYEE"
             },{
 				PANELNAME: "WAREHOUSE",
                 ENABLED: "ENABLED",
 				USER_NO: "",
 				USER_CODE: "2222",
 				PROFILE: 1,
-				PROFILENAME: "MASTER ACCESS"
+				//PROFILENAME: "MASTER ACCESS"
 			}],
         }],
     	change: function(e){
@@ -57,5 +58,15 @@ app.home = kendo.observable({
    	});
 
     parent.set('viewModel', viewModel);
+    
+    profilesViewModel = kendo.observable({
+    	profiles: [
+        	{ id: 1, name: "MASTER ACCESS" },
+        	{ id: 2, name: "EMPLOYEE" },
+        	{ id: 99, name: "POLICE" }
+    	]
+	});
+    
+    parent.set('profilesViewModel', profilesViewModel);
 
 })(app.home);

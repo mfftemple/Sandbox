@@ -54,7 +54,7 @@
                                 <input data-bind="value: ENABLED" type="text">
                             </td>
                             <td colspan="2">
-                                <input data-bind="value: PROFILENAME" type="text">
+                            	<select id="profilesViewModel" data-text-field="name" data-value-field="id" data-bind="source: profilesViewModel.profiles, value: PROFILE"></select>
                             </td>
                         </tr>
                     </table>
@@ -63,7 +63,7 @@
             
         </div>
     </div>
-    <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].PANELS[0].PROFILENAME)">CREDENTIAL 1, PANEL 1, PROFILENAME</a>
+    <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].PANELS[0].PROFILE)">CREDENTIAL 1, PANEL 1, PROFILE</a>
     <a data-role="button" onclick="alert(app.home.viewModel.demoData[1].PANELS[1].ENABLED)">CREDENTIAL 2, PANEL 2, ENABLED</a>
     <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].HOTSTAMP)">CREDENTIAL 1 HOTSTAMP</a>
 </div>
