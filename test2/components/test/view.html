@@ -1,0 +1,39 @@
+<!-- START_CUSTOM_CODE_updateUserView -->
+<!-- START_CUSTOM_CODE_searchPersonViewModel -->
+<div data-role="view" data-use-native-scrolling="true" data-title="Update User" data-layout="main" data-reload="false" data-model="app.home" 
+     data-show="app.home.onShow" data-after-show="app.home.afterShow">
+    <!--<input data-bind="value: DMP_GetUserCodes_ViewModel2.dataSource.at(0).CODE">-->
+    <br>
+   	<div data-bind="source: DMP_GetUserCodes_ViewModel.dataSource" data-template="event-template">
+		<script id="event-template" type="text/x-kendo-template">
+    		<div>#: data['PANEL'] #</div>
+            #= kendo.render(kendo.template($("\\#product-template").html()),     DMP_GetUserCodes_DataSource2.data()    ) #
+		</script>
+    </div>
+
+    <script id="product-template" type="text/x-kendo-template">
+	<input value="#: CREDENTIAL #"">
+    </script>    
+        
+    <ul id="users"></ul>
+
+    <script type="text/x-kendo-template" id="myTemplate">
+        #if(isAdmin){#
+            <li>#: name # is Admin</li>
+        #}else{#
+            <li>#: name # is User</li>
+        #}#
+    </script>
+    <a data-role="button" onclick="alert(DMP_GetUserCodes_DataSource2.at(0).CREDENTIAL)">OK</a>
+</div>
+<!-- END_CUSTOM_CODE_searchPersonViewModel -->
+<!-- END_CUSTOM_CODE_updateUserView
+	<div data-auto-bind="false" data-bind="{ source: DMP_GetUserCodes_ViewModel.dataSource }" data-template="credentials-template">
+    	<script type="text/x-kendo-tmpl" id="credentials-template">
+		<p>#: data['CODE'] #</p>
+    	</script>
+	</div>
+-->
+	<!--<script type="text/x-kendo-template" id="product-template">
+		<p>#: name #</p>
+	</script>-->
