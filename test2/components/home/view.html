@@ -28,7 +28,8 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="min-width:50%;max-width:50%;">
-                            <input data-bind="value: CARDFORMAT" type="text">
+                            <!--<input data-bind="value: CARDFORMAT" type="text">-->
+                            <select id="cardFormatsViewModel" data-text-field="name" data-value-field="name" data-bind="source: cardFormatsViewModel.dataSource, value: CARDFORMAT"></select>
                         </td>
                         <td colspan="2" style="min-width:50%;max-width:50%;">
                             <input data-bind="value: STATUS" type="text">
@@ -63,6 +64,7 @@
             
         </div>
     </div>
+    <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].CARDFORMAT)">CREDENTIAL 1, PROFILE</a>
     <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].PANELS[0].PROFILE)">CREDENTIAL 1, PANEL 1, PROFILE</a>
     <a data-role="button" onclick="alert(app.home.viewModel.demoData[1].PANELS[1].ENABLED)">CREDENTIAL 2, PANEL 2, ENABLED</a>
     <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].HOTSTAMP)">CREDENTIAL 1 HOTSTAMP</a>
