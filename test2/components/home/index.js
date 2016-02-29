@@ -38,7 +38,7 @@ function pushIt() {
         	//PROFILENAME: "MASTER ACCESS"
    		}]
     });
-    alert(viewModel.demoData[2].HOTSTAMP);
+    //alert(viewModel.demoData[2].HOTSTAMP);
 }
 
 
