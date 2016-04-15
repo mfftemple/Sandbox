@@ -4,21 +4,21 @@
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 
     <!-- END_CUSTOM_CODE_alarmsView -->
-    <ul data-role="listview" data-auto-bind="false" data-style="inset" data-template="alarmsViewModelTemplate" data-bind="{ source: alarmsViewModel.dataSource, events: {click: alarmsViewModel.itemClick} }" data-pull-to-refresh="true" data-endless-scroll="false">
+    <ul class="testbc" data-role="listview" data-auto-bind="false" data-style="inset" data-template="alarmsViewModelTemplate" data-bind="{ source: alarmsViewModel.dataSource, events: {click: alarmsViewModel.itemClick} }" data-pull-to-refresh="true" data-endless-scroll="false">
     </ul>
     <!-- START_CUSTOM_CODE_alarmsViewModel -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 
     <!-- END_CUSTOM_CODE_alarmsViewModel -->
     <script type="text/x-kendo-template" id="alarmsViewModelTemplate">
-    	<div style="display:inline;">
-        	<div style="float:left;text-align:left;width:75%;color:\#000000;">
+    	<div style="display:inline;background-color: green;color:white;">
+        	<div style="float:left;text-align:left;width:75%;">
            		<h3 style="float:left;"><span class="#: data.icon() #"></span>#: alarmType #</h3>
            	</div>
-            <div style="color:\#000000;padding-left:.5em;float:right;display:block;padding-top: .5em;">
+            <div style="padding-left:.5em;float:right;display:block;padding-top: .5em;">
            		#: alarmDate #
            	</div>
-            <div style="color:\#000000;padding-left:.5em;float:right;display:block;padding-bottom: .5em;">
+            <div style="padding-left:.5em;float:right;display:block;padding-bottom: .5em;">
            		#: alarmTime #
            	</div>
         </div>

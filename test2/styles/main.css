@@ -160,7 +160,9 @@
     background-color: #33b5e5;
 }
 
-
+.km-flat .km-list.testbc > li {
+	background-color:#bfbfbf;
+}
 /* START_CUSTOM_CODE_kendoUiMobileApp */
 
 
