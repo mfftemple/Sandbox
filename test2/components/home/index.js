@@ -92,7 +92,7 @@ function pushIt() {
     parent.set('cardFormatsViewModel', cardFormatsViewModel);
 
     cardFormatsDataSource.read().then(function() {
-        alert(JSON.stringify(cardFormatsViewModel.dataSource));
+        //alert(JSON.stringify(cardFormatsViewModel.dataSource));
     });
 
     //This is a viewmodel that uses a complex data structure with dummy data
@@ -143,7 +143,7 @@ function pushIt() {
             }],
         }],
         change: function(e) {
-            alert(e.field);
+            //alert(e.field);
         }
     });
 

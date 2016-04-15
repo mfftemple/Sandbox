@@ -14,7 +14,7 @@ app.home = kendo.observable({
     onShow: function() {
         DMP_GetUserCodes_DataSource2.read();
         DMP_GetUserCodes_DataSource.read();
-        alert(DMP_GetUserCodes_DataSource2.view()[0].CREDENTIAL);
+        //alert(DMP_GetUserCodes_DataSource2.view()[0].CREDENTIAL);
         
         /*
         var templateContent2 = $("#myTemplate").html();

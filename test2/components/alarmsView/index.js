@@ -57,16 +57,11 @@ app.alarmsView = kendo.observable({
                 dataProvider: dataProvider
             },
             change: function(e) {
-                var data = this.data();
-                for (var i = 0; i < data.length; i++) {
-                    var dataItem = data[i];
 
-                    flattenLocationProperties(dataItem);
-                }
             },
             error: function(e) {
                 if (e.xhr) {
-                    alert(JSON.stringify(e.xhr));
+                    alert('error: ' + JSON.stringify(e.xhr));
                 }
             },
             schema: {
@@ -76,6 +71,14 @@ app.alarmsView = kendo.observable({
                             field: 'alarmType',
                             defaultValue: ''
                         },
+                        'alarmDate': {
+                            field: 'alarmDate',
+                            defaultValue: '',
+                        },
+                        'alarmTime': {
+                            field: 'alarmTime',
+                            defaultValue: ''
+                        }
                     },
                     icon: function() {
                         var i = 'globe';
