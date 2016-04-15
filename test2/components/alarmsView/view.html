@@ -11,20 +11,16 @@
 
     <!-- END_CUSTOM_CODE_alarmsViewModel -->
     <script type="text/x-kendo-template" id="alarmsViewModelTemplate">
-        <div style="display:inline;" class="image-with-text">
-        	<div style="border-style: solid;border-width: 1px">
-            	<!--<h3><span class="#: data.icon() #"></span>#: data['alarmType'] #</h3>-->
-            	<h3>#: data['alarmType'] #</h3>	
-			</div>
-            <div style="border-style: solid;border-width: 1px;">
-            	<div style="border-style: solid;border-width: 1px">
-                	#: data['alarmDate'] #
-                </div>
-                <div style="border-style: solid;border-width: 1px">
-                    #: data['alarmTime'] #
-                </div>
-            </div>
-        </div>
+    	<div style="display:inline;">
+        	<div style="float:left;text-align:left;width:75%;color:\#000000;">
+           		<h3 style="float:left;"><span class="#: data.icon() #"></span>#: alarmType #</h3>
+           	</div>
+            <div style="color:\#000000;padding-left:.5em;float:right;display:block;padding-top: .5em;">
+           		#: alarmDate #
+           	</div>
+            <div style="color:\#000000;padding-left:.5em;float:right;display:block;padding-bottom: .5em;">
+           		#: alarmTime #
+           	</div>
         </div>
     </script>
 </div>
