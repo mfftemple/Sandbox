@@ -1,4 +1,5 @@
 'use strict';
+// START_CUSTOM_CODE_test
 var DMP_GetUserCodes_DataSource_Options = {};
 var DMP_GetUserCodes_DataSource = {};
 var DMP_GetUserCodes_ViewModel = {};
@@ -57,7 +58,6 @@ app.home = kendo.observable({
 
 
 (function (parent) {
-// START_CUSTOM_CODE_home
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
     //This datasource performs a GET request to the everlive cloud function S2_GetCardFormats
@@ -148,7 +148,4 @@ app.home = kendo.observable({
 
 })(app.home);
 
-// START_CUSTOM_CODE_homeModel
-// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-// END_CUSTOM_CODE_homeModel
+// END_CUSTOM_CODE_test

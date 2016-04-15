@@ -1,3 +1,4 @@
+// START_CUSTOM_CODE_home
 'use strict';
 var viewModel = {};
 var profilesViewModel = {};
@@ -84,6 +85,11 @@ function pushIt() {
                     });
                     //Bind the view model to the html
                     parent.set('cardFormatsViewModel', cardFormatsViewModel);
+                    
+                    cardFormatsDataSource.read().then(function(){
+                       alert(JSON.stringify(cardFormatsViewModel.dataSource)); 
+                    });
+                    
 
                     //This is a viewmodel that uses a complex data structure with dummy data
                     //You will create this data structure from the retrieved datasources
@@ -194,3 +200,4 @@ function pushIt() {
 
 
                 })(app.home);
+// END_CUSTOM_CODE_home
