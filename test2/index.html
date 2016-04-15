@@ -5,6 +5,8 @@
     <title></title>
     <meta charset="utf-8">
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+
+    <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
 
     <script src="cordova.js"></script>
@@ -16,6 +18,7 @@
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/alarmsView/index.js"></script>
     <script src="components/home/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
@@ -23,12 +26,10 @@
                 <span data-role="view-title"></span>
             </div>
         </header>
-
-        <!-- application views will be rendered here -->
-
         <footer data-role="footer">
             <div data-role="tabstrip" id="navigation-container">
                 <a href="components/home/view.html" data-icon="home">Home View</a>
+                <a href="components/alarmsView/view.html" data-icon="organize">Alarms</a>
             </div>
         </footer>
     </div>
@@ -39,9 +40,6 @@
                 <span data-role="view-title"></span>
             </div>
         </header>
-
-        <!-- application views will be rendered here -->
-
         <footer data-role="footer">
         </footer>
     </div>

@@ -20,12 +20,41 @@
           "registerNameLabel": "Name",
           "registerLabel": "Register",
           "registerRedirect": "home",
-          "gotoSigninLabel": "Sign In"
+          "gotoSigninLabel": "Sign In",
+          "enableLogout": false,
+          "enableRememberme": false
         }
       ],
       "title": "Home View",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "alarmsView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:editableList",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "components": [],
+          "name": "alarmsViewModel",
+          "dataProvider": "test2",
+          "collection": "Alarms",
+          "headerField": "alarmType",
+          "iconField": true,
+          "pullToRefresh": true,
+          "endlessScroll": false,
+          "deleteItemButton": false,
+          "detailHeaderFieldSource": "static",
+          "detailHeaderFieldValue": "Detail",
+          "addItemForm": false,
+          "editItemForm": false
+        }
+      ],
+      "title": "Alarms",
+      "addToNavigation": true,
+      "icon": "organize"
     }
   ],
   "dataProviders": [
@@ -43,5 +72,9 @@
   "navigation": "tabstrip",
   "view": "home",
   "transition": "slide",
-  "skin": "flat"
+  "showMoreTab": false,
+  "skin": "flat",
+  "skinMainColor": "#1a1a1a",
+  "skinTextColor": "#ffffff",
+  "skinAccentColor": "#10c4b2"
 }

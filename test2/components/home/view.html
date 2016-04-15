@@ -1,73 +1,186 @@
-<!-- START_CUSTOM_CODE_home -->
-<div data-role="view" data-use-native-scrolling="true" data-title="Update User" data-layout="main" data-reload="false" data-model="app.home" data-show="app.home.onShow" data-after-show="app.home.afterShow">
-    <!-- HTML BODY -->
-    <br>
-    <div style="margin:auto;width:95%;background-color:white;border:2px solid grey;border-radius:8px;display-style:groove;">
-        <div id="viewModel" class="form-view">
-            <div data-bind="source: viewModel.demoData" data-template="credentials-template"></div>
-            <script type="text/x-kendo-tmpl" id="credentials-template">
-            <div>
-                <table style="border:1px solid black;padding-top:10px;padding-bottom:10px;">
-                    <tr>
-                        <td style="width:35%">
-                            <font class="user">Card Number:</font>
-                        </td>
-                        <td colspan="2" style="width:30%">
-                            <input class="cardNumber" data-bind="value: HOTSTAMP" type="text">
-                        </td>
-                        <td class="tdDelete">
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="min-width:50%;max-width:50%;">
-                            <font class="user">Card Format:</font>
-                        </td>
-                        <td colspan="2" style="min-width:50%;max-width:50%;">
-                            <font class="user">Card Status:</font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="min-width:50%;max-width:50%;">
-                            <!--<input data-bind="value: CARDFORMAT" type="text">-->
-                            <select id="cardFormatsViewModel" data-text-field="name" data-value-field="name" data-bind="source: cardFormatsViewModel.dataSource, value: CARDFORMAT"></select>
-                        </td>
-                        <td colspan="2" style="min-width:50%;max-width:50%;">
-                            <input data-bind="value: STATUS" type="text">
-                        </td>
-                    </tr>
-                </table>
-                              
-                <div data-bind="source: PANELS" data-template="panels-template"></div>
-            </div>
-            </script>
+<div data-role="view" data-title="Home View" data-layout="main" data-model="app.home" data-show="app.home.onShow" data-after-show="app.home.afterShow">
+    <div class="signin-view">
+        <form>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label>Email
+                        <input type="email" data-bind="value: homeModel.email" required autofocus>
+                    </label>
+                </li>
+                <li>
+                    <label>Password
+                        <input type="password" data-bind="value: homeModel.password" required>
+                    </label>
+                </li>
+            </ul>
 
-            <script script type="text/x-kendo-tmpl" id="panels-template">
-                <div id="collapsible" data-role="collapsible" data-collapsed="true" data-collapse-icon="arrow-n" data-expand-icon="arrow-s" data-icon-position="right" data-animation="false">
-                    <h4>#: data['PANELNAME'] #</h4>
-                    <table style="width:100%">
-                        <tr>
-                        	<td>
-                            	<input data-bind="value: USER_CODE" type="text">
-                            </td>
-                      	</tr>
-                        <tr>
-                            <td>
-                                <input data-bind="value: ENABLED" type="text">
-                            </td>
-                            <td colspan="2">
-                            	<select id="profilesViewModel" data-text-field="name" data-value-field="id" data-bind="source: profilesViewModel.profiles, value: PROFILE"></select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </script>
-            
-        </div>
+            <div class="button-group button-group-vertical">
+                <a data-role="button" class="primary" data-bind="events: { click: homeModel.signin }">Sign In</a>
+
+                <a data-role="button" data-bind="events: { click: homeModel.toggleView }">Register</a>
+
+            </div>
+        </form>
     </div>
-    <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].CARDFORMAT)">CREDENTIAL 1, CARDFORMAT</a>
-    <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].PANELS[0].PROFILE)">CREDENTIAL 1, PANEL 1, PROFILE</a>
-    <a data-role="button" onclick="alert(app.home.viewModel.demoData[1].PANELS[1].ENABLED)">CREDENTIAL 2, PANEL 2, ENABLED</a>
-    <a data-role="button" onclick="pushIt()">New Row</a>
+    <div class="signup-view" style="display:none;">
+        <form>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label>Email
+                        <input type="email" data-bind="value: homeModel.email" required>
+                    </label>
+                </li>
+                <li>
+                    <label>Password
+                        <input type="password" data-bind="value: homeModel.password">
+                    </label>
+                </li>
+                <li>
+                    <label>Name
+                        <input type="text" data-bind="value: homeModel.displayName">
+                    </label>
+                </li>
+            </ul>
+            <div class="button-group button-group-vertical">
+                <a class="primary" data-role="button" data-bind="events: { click: homeModel.register }">Register</a>
+                <a data-role="button" data-bind="events: { click: homeModel.toggleView }">Sign In</a>
+            </div>
+        </form>
+    </div>
+    <div class="offline" align="center" style="display:none;">
+        You are currently offline. Before using this app in offline mode you must initialize it while you are online
+    </div>
+    <!-- START_CUSTOM_CODE_homeModel -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+    <!-- END_CUSTOM_CODE_homeModel -->
+
+    <!-- START_CUSTOM_CODE_home -->
+    <div data-role="view" data-use-native-scrolling="true" data-title="Update User" data-layout="main" data-reload="false" data-model="app.home" data-show="app.home.onShow" data-after-show="app.home.afterShow">
+        <div class="signin-view">
+            <form>
+                <ul data-role="listview" data-style="inset">
+                    <li>
+                        <label>Email
+                            <input type="email" data-bind="value: homeModel.email" required autofocus>
+                        </label>
+                    </li>
+                    <li>
+                        <label>Password
+                            <input type="password" data-bind="value: homeModel.password" required>
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="button-group button-group-vertical">
+                    <a data-role="button" class="primary" data-bind="events: { click: homeModel.signin }">Sign In</a>
+
+                    <a data-role="button" data-bind="events: { click: homeModel.toggleView }">Register</a>
+
+                </div>
+            </form>
+        </div>
+        <div class="signup-view" style="display:none;">
+            <form>
+                <ul data-role="listview" data-style="inset">
+                    <li>
+                        <label>Email
+                            <input type="email" data-bind="value: homeModel.email" required>
+                        </label>
+                    </li>
+                    <li>
+                        <label>Password
+                            <input type="password" data-bind="value: homeModel.password">
+                        </label>
+                    </li>
+                    <li>
+                        <label>Name
+                            <input type="text" data-bind="value: homeModel.displayName">
+                        </label>
+                    </li>
+                </ul>
+                <div class="button-group button-group-vertical">
+                    <a class="primary" data-role="button" data-bind="events: { click: homeModel.register }">Register</a>
+                    <a data-role="button" data-bind="events: { click: homeModel.toggleView }">Sign In</a>
+                </div>
+            </form>
+        </div>
+        <div class="offline" align="center" style="display:none;">
+            You are currently offline. Before using this app in offline mode you must initialize it while you are online
+        </div>
+        <!-- START_CUSTOM_CODE_homeModel -->
+        <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+        <!-- END_CUSTOM_CODE_homeModel -->
+        <!-- HTML BODY -->
+        <br>
+        <div style="margin:auto;width:95%;background-color:white;border:2px solid grey;border-radius:8px;display-style:groove;">
+            <div id="viewModel" class="form-view">
+                <div data-bind="source: viewModel.demoData" data-template="credentials-template"></div>
+                <script type="text/x-kendo-tmpl" id="credentials-template">
+                    <div>
+                        <table style="border:1px solid black;padding-top:10px;padding-bottom:10px;">
+                            <tr>
+                                <td style="width:35%">
+                                    <font class="user">Card Number:</font>
+                                </td>
+                                <td colspan="2" style="width:30%">
+                                    <input class="cardNumber" data-bind="value: HOTSTAMP" type="text">
+                                </td>
+                                <td class="tdDelete">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="min-width:50%;max-width:50%;">
+                                    <font class="user">Card Format:</font>
+                                </td>
+                                <td colspan="2" style="min-width:50%;max-width:50%;">
+                                    <font class="user">Card Status:</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="min-width:50%;max-width:50%;">
+                                    <!--<input data-bind="value: CARDFORMAT" type="text">-->
+                                    <select id="cardFormatsViewModel" data-text-field="name" data-value-field="name" data-bind="source: cardFormatsViewModel.dataSource, value: CARDFORMAT"></select>
+                                </td>
+                                <td colspan="2" style="min-width:50%;max-width:50%;">
+                                    <input data-bind="value: STATUS" type="text">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div data-bind="source: PANELS" data-template="panels-template"></div>
+                    </div>
+                </script>
+
+                <script script="" type="text/x-kendo-tmpl" id="panels-template">
+                    <div id="collapsible" data-role="collapsible" data-collapsed="true" data-collapse-icon="arrow-n" data-expand-icon="arrow-s" data-icon-position="right" data-animation="false">
+                        <h4>#: data['PANELNAME'] #</h4>
+                        <table style="width:100%">
+                            <tr>
+                                <td>
+                                    <input data-bind="value: USER_CODE" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input data-bind="value: ENABLED" type="text">
+                                </td>
+                                <td colspan="2">
+                                    <select id="profilesViewModel" data-text-field="name" data-value-field="id" data-bind="source: profilesViewModel.profiles, value: PROFILE"></select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </script>
+
+            </div>
+        </div>
+        <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].CARDFORMAT)">CREDENTIAL 1, CARDFORMAT</a>
+        <a data-role="button" onclick="alert(app.home.viewModel.demoData[0].PANELS[0].PROFILE)">CREDENTIAL 1, PANEL 1, PROFILE</a>
+        <a data-role="button" onclick="alert(app.home.viewModel.demoData[1].PANELS[1].ENABLED)">CREDENTIAL 2, PANEL 2, ENABLED</a>
+        <a data-role="button" onclick="pushIt()">New Row</a>
+    </div>
+    <!-- END_CUSTOM_CODE_home -->
 </div>
-<!-- END_CUSTOM_CODE_home -->
